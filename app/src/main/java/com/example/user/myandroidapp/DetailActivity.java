@@ -23,6 +23,7 @@ public class DetailActivity extends CustomizedActivity {
 
 
     public final static int savePokemonIntoComputer =1; //result code
+    public final static int addPokemonLevel =2;
     OwnedPokemonInfo ownedPokemonInfo ;
 
     public Intent srcIntent ;
@@ -106,8 +107,16 @@ public class DetailActivity extends CustomizedActivity {
         }else if(itemId == R.id.action_level_up)
         {
 
-           // srcIntent.putExtra()
+            ownedPokemonInfo.level++;
+            ((TextView)findViewById(R.id.levelText)).setText(String.valueOf(ownedPokemonInfo.level)); //activity_detail
 
+           Intent intent = new Intent();
+
+            intent.putExtra(OwnedPokemonInfo.pokemonInfoObjectKey, ownedPokemonInfo);
+
+            setResult(addPokemonLevel,intent);
+
+            finish();
                 return true;
         }else {
             return super.onOptionsItemSelected(item);

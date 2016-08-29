@@ -9,6 +9,7 @@ import android.os.Parcelable;
 public class OwnedPokemonInfo implements Parcelable {
 
     public static final String nameKey="name";
+    public static final String pokemonInfoObjectKey="Object";
     public static final int maxNumSkills = 4;
     public static String[] typeNames;
 

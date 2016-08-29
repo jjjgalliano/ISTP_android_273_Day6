@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.myandroidapp.adapter.PokemonListViewAdapter;
@@ -129,12 +130,15 @@ public class PokemonListActivity extends CustomizedActivity implements OnPokemon
                         Toast.makeText(this, pokemonName + "data saved to computer", Toast.LENGTH_SHORT).show();
                     }
                 }
+               else  if(resultCode == DetailActivity.addPokemonLevel)
+                {
+                    OwnedPokemonInfo ownedPokemonInfo = data.getParcelableExtra(OwnedPokemonInfo.pokemonInfoObjectKey);
+                    if (arrayAdapter != null) {
+                        arrayAdapter.update(ownedPokemonInfo);
 
-//               else  if(resultCode == DetailActivity.)
-//                {
-//
-//                    arrayAdapter.update();
-//                }
+                       // Toast.makeText(this, pokemonName + "data saved to computer", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
 
         }else
