@@ -50,4 +50,13 @@ public class CustomizedActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+
+    @Override
+    public void onBackPressed() {
+        if( isTaskRoot() )
+        {
+            moveTaskToBack(true); // press home button ,  move root activity to background
+        }else
+        {super.onBackPressed();}
+    }
 }

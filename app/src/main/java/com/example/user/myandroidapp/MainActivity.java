@@ -96,7 +96,11 @@ public class MainActivity extends CustomizedActivity implements View.OnClickList
         intent.setClass(MainActivity.this, PokemonListActivity.class);
         intent.putExtra(selectedPokemonIndexKey, getSelectedPokemonIndex());
 
-        startActivity(intent);
+        startActivity(intent); //
+        finish(); //main activity not root ; root activity is the new activity
+
+
+
 
     }
 
