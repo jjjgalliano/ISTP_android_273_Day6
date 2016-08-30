@@ -107,7 +107,7 @@ public class PokemonListActivity extends CustomizedActivity implements OnPokemon
         String test = null ;
         int itemId = item.getItemId();
         if(itemId == R.id.action_delete) {
-           // deleteOwnPokemon();
+
             alertDialog.show();
             return true;
         }
