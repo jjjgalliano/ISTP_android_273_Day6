@@ -7,5 +7,5 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/testView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerInParent="true" />
 </RelativeLayout>

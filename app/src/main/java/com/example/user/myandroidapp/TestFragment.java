@@ -54,8 +54,6 @@ public class TestFragment extends CustomizedFragment {
             TextView textView = (TextView) fragmentview.findViewById(R.id.testView);
             textView.setText(mMessage);
         }
-
         return  fragmentview;
-
     }
 }
