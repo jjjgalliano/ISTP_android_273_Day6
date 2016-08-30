@@ -23,7 +23,7 @@ public class DetailActivity extends CustomizedActivity {
 
 
     public final static int savePokemonIntoComputer =1; //result code
-    public final static int addPokemonLevel =2;
+    public final static int addPokemonLevel =2; //result code
     OwnedPokemonInfo ownedPokemonInfo ;
 
     public Intent srcIntent ;
@@ -87,7 +87,7 @@ public class DetailActivity extends CustomizedActivity {
 
    // @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.detail_action_bar,menu); // ?? Menu 誰給他？？ 誰call
+        getMenuInflater().inflate(R.menu.detail_action_bar,menu); // ?? Menu 誰給他？？ 誰call ?? menu (View)?
         return true;
     }
 
@@ -100,24 +100,22 @@ public class DetailActivity extends CustomizedActivity {
             intent.putExtra(OwnedPokemonInfo.nameKey, ownedPokemonInfo.name);
             //Log.d("test_name",ownedPokemonInfo.name+":"+OwnedPokemonInfo.nameKey);
 
-            setResult(savePokemonIntoComputer,intent);
+            setResult(savePokemonIntoComputer,intent);  // intent back to list activity -> onActivityResult
             finish();
             return true;
 
         }else if(itemId == R.id.action_level_up)
         {
-
             ownedPokemonInfo.level++;
             ((TextView)findViewById(R.id.levelText)).setText(String.valueOf(ownedPokemonInfo.level)); //activity_detail
 
-           Intent intent = new Intent();
-
+            Intent intent = new Intent();
             intent.putExtra(OwnedPokemonInfo.pokemonInfoObjectKey, ownedPokemonInfo);
 
             setResult(addPokemonLevel,intent);
 
             finish();
-                return true;
+                return true ;
         }else {
             return super.onOptionsItemSelected(item);
         }

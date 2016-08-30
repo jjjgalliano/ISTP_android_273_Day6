@@ -21,8 +21,7 @@ import java.util.ArrayList;
 public class PokemonListActivity extends CustomizedActivity implements OnPokemonSelectedChangeListener, AdapterView.OnItemClickListener{
 
     public final static int  detailActivityRequestCode =1; // intent  key , can't be the same
-
-    public final static String ownedPokemonInfoKey ="ownedPokemonInfoKey";
+    public final static String ownedPokemonInfoKey ="ownedPokemonInfoKey"; //intent key , pass object
 
 
     PokemonListViewAdapter arrayAdapter;
@@ -42,8 +41,7 @@ public class PokemonListActivity extends CustomizedActivity implements OnPokemon
         ownedPokemonInfos = dataManager.getOwnedPokemonInfos();
 
         OwnedPokemonInfo[] initPokemonInfos = dataManager.getInitPokemonInfos();
-        Intent srcIntent = getIntent();
-
+        Intent srcIntent = getIntent();                    // what if intent is empty ???
 
         int selectedIndex = srcIntent.getIntExtra(MainActivity.selectedPokemonIndexKey, 0);
         ownedPokemonInfos.add(0, initPokemonInfos[selectedIndex]);
@@ -105,7 +103,7 @@ public class PokemonListActivity extends CustomizedActivity implements OnPokemon
         Intent intent = new Intent();
         intent.setClass(PokemonListActivity.this ,  DetailActivity.class);
         intent.putExtra(ownedPokemonInfoKey,ownedPokemonInfo); // simgle object
-        startActivityForResult(intent,detailActivityRequestCode);
+        startActivityForResult(intent,detailActivityRequestCode);   //!!!
 
     }
 
@@ -116,7 +114,7 @@ public class PokemonListActivity extends CustomizedActivity implements OnPokemon
         {
 
                 if(resultCode == DetailActivity.savePokemonIntoComputer) {
-                  String  pokemonName = data.getStringExtra(OwnedPokemonInfo.nameKey);  // why not new  singlton ??
+                  String  pokemonName = data.getStringExtra(OwnedPokemonInfo.nameKey);
 
                     if (arrayAdapter != null) {
                         OwnedPokemonInfo ownedPokemonInfo = arrayAdapter.getItemWithName(pokemonName);

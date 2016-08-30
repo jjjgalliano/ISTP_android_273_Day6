@@ -8,8 +8,8 @@ import android.os.Parcelable;
  */
 public class OwnedPokemonInfo implements Parcelable {
 
-    public static final String nameKey="name";
-    public static final String pokemonInfoObjectKey="Object";
+    public static final String nameKey="name"; // for intent extra  passs name
+    public static final String pokemonInfoObjectKey="Object";  // for intent extrat pass  parcelable (serialized )object
     public static final int maxNumSkills = 4;
     public static String[] typeNames;
 
