@@ -62,7 +62,7 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo> imple
 
     @Override
     public void onSelectedChange(OwnedPokemonInfo ownedPokemonInfo) {
-        if(ownedPokemonInfo.isSelected) {
+        if(ownedPokemonInfo.isSelected()) {
             selectedPokemons.add(ownedPokemonInfo);
         }
         else {
@@ -104,16 +104,16 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo> imple
         public void setView(OwnedPokemonInfo data) {
             mData = data;
 
-            mRowView.setActivated(data.isSelected);
+            mRowView.setActivated(data.isSelected());
 
-            mNameText.setText(data.name);
-            mLevelText.setText(String.valueOf(data.level));
-            mCurrentHP.setText(String.valueOf(data.currentHP));
-            mMaxHP.setText(String.valueOf(data.maxHP));
-            int progress = (int)((((float)data.currentHP) / data.maxHP) * 100);
+            mNameText.setText(data.getName());
+            mLevelText.setText(String.valueOf(data.getLevel()));
+            mCurrentHP.setText(String.valueOf(data.getCurrentHP()));
+            mMaxHP.setText(String.valueOf(data.getMaxHP()));
+            int progress = (int)((((float) data.getCurrentHP()) / data.getMaxHP()) * 100);
             mHPBar.setProgress(progress);
 
-            int pokemonId = data.pokemonId;
+            int pokemonId = data.getPokemonId();
             String imgUrl = String.format(
                     "http://www.csie.ntu.edu.tw/~r03944003/listImg/%d.png",
                     pokemonId
@@ -124,8 +124,8 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo> imple
         }
 
         public void setSelected() {
-            mData.isSelected = !mData.isSelected;
-            mRowView.setActivated(mData.isSelected);
+            mData.setSelected(!mData.isSelected());
+            mRowView.setActivated(mData.isSelected());
             mAdapter.onSelectedChange(mData);
         }
 
@@ -144,7 +144,7 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo> imple
         {
             OwnedPokemonInfo ownedPokemonInfo = getItem(i);
 
-            if (ownedPokemonInfo.name.equals(pokemonName)) {
+            if (ownedPokemonInfo.getName().equals(pokemonName)) {
                 return ownedPokemonInfo;
             }
         }
@@ -155,13 +155,13 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo> imple
 
     public void update(OwnedPokemonInfo newData)
     {
-        OwnedPokemonInfo oldData = getItemWithName(newData.name);
-        oldData.skills = newData.skills;
-        oldData.currentHP = newData.currentHP;
-        oldData.maxHP = newData.maxHP;
-        oldData.level = newData.level;
-        oldData.type_1 = newData.type_1;
-        oldData.type_2 = newData.type_2;
+        OwnedPokemonInfo oldData = getItemWithName(newData.getName());
+        oldData.setSkills(newData.getSkills());
+        oldData.setCurrentHP(newData.getCurrentHP());
+        oldData.setMaxHP(newData.getMaxHP());
+        oldData.setLevel(newData.getLevel());
+        oldData.setType_1(newData.getType_1());
+        oldData.setType_2(newData.getType_2());
 
        // remove(oldData);
        // add(newData); add to adapter

@@ -60,8 +60,8 @@ public class PokemonListFragment extends Fragment implements OnPokemonSelectedCh
         int selectedIndex = srcIntent.getIntExtra(MainActivity.selectedPokemonIndexKey, 0);
         ownedPokemonInfos.add(0, initPokemonInfos[selectedIndex]);
 
-        setHasOptionsMenu(true);
-        setMenuVisibility(true);
+        setHasOptionsMenu(true); // fragement contraol its won menu
+        setMenuVisibility(true); //  ?????????
     }
 
     @Nullable
