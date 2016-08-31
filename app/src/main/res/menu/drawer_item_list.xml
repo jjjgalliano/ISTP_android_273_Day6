@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/owned_pokemon_list"
+        android:title="My pokemon"
+        />
+    <item
+        android:id="@+id/pokemon_lookup"
+        android:title="My pokemon lib"
+        />
+    <item
+        android:id="@+id/pokemon_map"
+        android:title="pokemon Map"
+        />
+</menu>
