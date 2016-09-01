@@ -61,12 +61,7 @@ public class DrawerActivity extends AppCompatActivity implements Drawer.OnDrawer
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .inflateMenu(R.menu.drawer_item_list)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        // do something with the clicked item :D
-                        return false; //return false to bound back the drawer after clicking
-                    } })
+                .withOnDrawerItemClickListener(this)
                 .withSavedInstance(savedInstanceState) // recover
                 .build();
 
@@ -114,9 +109,9 @@ public class DrawerActivity extends AppCompatActivity implements Drawer.OnDrawer
         }else if(fragmentManager.getBackStackEntryCount() > 0)
         {
             fragmentManager.popBackStack();
+        }else {
+            super.onBackPressed();
         }
-
-        super.onBackPressed();
     }
 
     public boolean onItemClick(View view, int position, IDrawerItem drawerItem)

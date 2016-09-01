@@ -77,12 +77,24 @@
                 android:id="@+id/radioButton3" />
         </RadioGroup>
 
+        <com.facebook.login.widget.LoginButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login facebook"
+            android:id="@+id/login_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/optionsGroup"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="false" />
+        ￼￼
+        ￼
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="確認"
             android:id="@+id/confirmButton"
-            android:layout_below="@+id/optionsGroup"
+            android:layout_below="@+id/login_button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:visibility="invisible" />
